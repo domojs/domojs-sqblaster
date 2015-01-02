@@ -1,5 +1,5 @@
-
-var browser=$('mdns').createBrowser($('mdns').tcp('http'));
+var mdns=require('mdns');
+var browser=mdns.createBrowser(mdns.tcp('http'));
 
 browser.on('serviceUp', function(service){
     if(service.host.startsWith('sq-blaster'))
