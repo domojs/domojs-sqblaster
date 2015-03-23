@@ -5,14 +5,7 @@ browser.on('serviceUp', function(service){
     if(service.host.startsWith('sq-blaster'))
     {
         console.log(service);
-        $.device({type:'.sq-blaster', category:'sq-blaster', name:service.host});
+        $.device({type:'.sq-blaster', category:'sq-blaster', name:service.host, ip:service.addresses});
     }
 });
 browser.start();
-
-exports.init=function(config)
-{
-    $.each($('./modules/sq-blaster/devices.json'), function(index, device){
-        $.device(device);
-    });
-};
