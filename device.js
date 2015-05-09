@@ -42,8 +42,8 @@ deviceTypes['sq-blaster']={
             $.each(dev.SQCommandInfo.command_info, function(index, item){
                 device.commands[item.$.command_name]={
                     type:'POST',
-                    contentType:'application/xml',
-                    data:'<docommand key="'+device.name+'" repeat= "0" seq="0" command="'+item.$.command_name+'" ir_data="'+item.$.ir_data+'" ch="0" />', 
+                    dataType:'xml',
+                    data:'<docommand key="'+device.name+'" repeat= "0" seq="0" command="'+item.$.command_name+'" ir_data="'+item.$.ir_data.trim()+'" ch="0" />', 
                     url:'http://'+body.blaster+'/docmnd.xml', crossDomain:true, headers:{'Connection':'close'}
                 };
             });
